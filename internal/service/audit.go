@@ -2,7 +2,7 @@ package service
 
 import (
 	"context"
-	"grpc_service_logger/pkg/domain/audit"
+	"github.com/f0xg0sasha/audit_logger/pkg/domain/audit"
 )
 
 type Repository interface {

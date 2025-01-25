@@ -3,9 +3,10 @@ package main
 import (
 	"context"
 	"fmt"
-	"grpc_service_logger/internal/config"
 	"log"
 	"time"
+
+	"github.com/f0xg0sasha/audit_logger/internal/config"
 )
 
 func main() {

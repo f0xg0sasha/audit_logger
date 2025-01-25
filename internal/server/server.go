@@ -2,8 +2,9 @@ package server
 
 import (
 	"fmt"
-	"grpc_service_logger/pkg/domain/audit"
 	"net"
+
+	"github.com/f0xg0sasha/audit_logger/pkg/domain/audit"
 
 	"google.golang.org/grpc"
 )

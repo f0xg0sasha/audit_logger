@@ -2,7 +2,8 @@ package repository
 
 import (
 	"context"
-	"grpc_service_logger/pkg/domain/audit"
+
+	"github.com/f0xg0sasha/audit_logger/pkg/domain/audit"
 
 	"go.mongodb.org/mongo-driver/mongo"
 )

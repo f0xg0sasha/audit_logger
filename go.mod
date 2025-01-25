@@ -1,4 +1,4 @@
-module grpc_service_logger
+module github.com/f0xg0sasha/audit_logger
 
 go 1.23.4
 
