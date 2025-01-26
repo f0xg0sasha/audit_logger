@@ -18,7 +18,7 @@ func NewAudit(db *mongo.Database) *Audit {
 	}
 }
 
-func (r *Audit) Insert(ctx context.Context, item *audit.LogItem) error {
+func (r *Audit) Insert(ctx context.Context, item audit.LogItem) error {
 	_, err := r.db.Collection("logs").InsertOne(ctx, item)
 
 	return err

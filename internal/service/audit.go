@@ -2,15 +2,17 @@ package service
 
 import (
 	"context"
+
 	"github.com/f0xg0sasha/audit_logger/pkg/domain/audit"
 )
 
 type Repository interface {
-	Insert(ctx context.Context, item *audit.LogItem) error
+	Insert(ctx context.Context, item audit.LogItem) error
 }
 
 type Audit struct {
 	repo Repository
+	audit.UnimplementedAuditServiceServer
 }
 
 func NewService(repo Repository) *Audit {
@@ -27,5 +29,5 @@ func (s *Audit) Insert(ctx context.Context, req *audit.LogRequest) error {
 		Timestamp: req.GetTimestamp().AsTime(),
 	}
 
-	return s.repo.Insert(ctx, &item)
+	return s.repo.Insert(ctx, item)
 }
