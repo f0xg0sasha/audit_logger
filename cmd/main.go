@@ -19,12 +19,10 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(cfg)
+	fmt.Println()
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
 	defer cancel()
-
-	_ = ctx
 
 	opts := options.Client()
 	opts.SetAuth(options.Credential{

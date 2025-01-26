@@ -1,6 +1,6 @@
 package config
 
-import "github.com/kelseyhightower/envconfig"
+import envcfg "github.com/kelseyhightower/envconfig"
 
 type Config struct {
 	DB     Mongo
@@ -21,11 +21,11 @@ type Server struct {
 func New() (*Config, error) {
 	cfg := new(Config)
 
-	if err := envconfig.Process("db", &cfg.DB); err != nil {
+	if err := envcfg.Process("db", &cfg.DB); err != nil {
 		return nil, err
 	}
 
-	if err := envconfig.Process("server", &cfg.Server); err != nil {
+	if err := envcfg.Process("server", &cfg.Server); err != nil {
 		return nil, err
 	}
 
