@@ -12,6 +12,7 @@ type AuditService interface {
 
 type AuditServer struct {
 	service AuditService
+	audit.UnimplementedAuditServiceServer
 }
 
 func NewAuditServer(service AuditService) *AuditServer {
@@ -20,9 +21,6 @@ func NewAuditServer(service AuditService) *AuditServer {
 
 func (h *AuditServer) Log(ctx context.Context, req *audit.LogRequest) (*audit.Empty, error) {
 	err := h.service.Insert(ctx, req)
-	if err != nil {
-		return nil, err
-	}
 
 	return &audit.Empty{}, err
 }

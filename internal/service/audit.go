@@ -12,7 +12,6 @@ type Repository interface {
 
 type Audit struct {
 	repo Repository
-	audit.UnimplementedAuditServiceServer
 }
 
 func NewService(repo Repository) *Audit {

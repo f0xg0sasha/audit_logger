@@ -43,11 +43,12 @@ func main() {
 
 	auditRepo := repository.NewAudit(db)
 	auditService := service.NewService(auditRepo)
-	auditSrv := server.NewServer(auditService)
+	auditSrv := server.NewAuditServer(auditService)
+	srv := server.NewServer(auditSrv)
 
 	fmt.Println("SERVER STARTED", time.Now())
 
-	if err := auditSrv.ListenAndServe(cfg.Server.Port); err != nil {
+	if err := srv.ListenAndServe(cfg.Server.Port); err != nil {
 		log.Fatal(err)
 	}
 }
